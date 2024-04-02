@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 
-export default function ContactItem({ item, img }) {
+export default function ContactItem({ item }) {
   return (
     <div>
       <Row>

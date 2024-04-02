@@ -4,3 +4,13 @@
   justify-content: center;
   align-items: center;
 }
+
+.Add-Button {
+  width: "100%";
+}
+/* 
+@media screen and (max-width: 600px) {
+  .Add-Button {
+    width: "50%";
+  }
+} */
