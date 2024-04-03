@@ -14,7 +14,7 @@ export default function SearchBox() {
   return (
     <div>
       <Form onSubmit={searchName}>
-        <Form.Group className="mb-3" controlId="formBasicSearch">
+        <Form.Group className="mb-3">
           <Form.Label>Search Name</Form.Label>
           <Form.Control
             size="lg"

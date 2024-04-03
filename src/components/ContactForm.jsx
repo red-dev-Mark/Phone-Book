@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, FormControl } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 
 export default function ContactForm() {
@@ -46,9 +46,9 @@ export default function ContactForm() {
     <div>
       {/* type이 submit인 버튼이 클릭되면, 폼에서 작동(onSubmit) */}
       <Form onSubmit={addContact}>
-        <Form.Group className="mb-3" controlId="formBasicPhoneBook">
+        <Form.Group className="mb-3">
           <Form.Label>Name</Form.Label>
-          <Form.Control
+          <FormControl
             size="lg"
             type="text"
             placeholder="Mark Kwon"
@@ -84,7 +84,7 @@ export default function ContactForm() {
           <Form.Label>Profile Image</Form.Label>
           <Form.Control
             type="file"
-            controlId="formFile"
+            controlId="formImage"
             className="mb-4"
             onChange={(event) => {
               image = event.target.files[0];
