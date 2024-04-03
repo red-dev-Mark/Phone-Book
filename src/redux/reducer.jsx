@@ -1,10 +1,10 @@
-let initialState = {
-  contactList: [],
+const initialStore = {
   keyword: "",
+  contactList: [],
 };
 
-export default function reducer(state = initialState, action) {
-  const { type, payload } = action; //구조분해할당
+export default function reducer(state = initialStore, action) {
+  const { type, payload } = action;
 
   switch (type) {
     case "ADD_CONTACT":
@@ -13,8 +13,13 @@ export default function reducer(state = initialState, action) {
         contactList: [
           ...state.contactList,
           {
-            name: payload.name,
-            phoneNumber: payload.phoneNumber,
+            name: payload.name === "" ? "No Name" : payload.name,
+            phoneNumber:
+              payload.phoneNumber === ""
+                ? "No Phone Number"
+                : payload.phoneNumber,
+            email: payload.email === "" ? "No Email" : payload.email,
+            image: payload.image === null ? null : payload.image,
           },
         ],
       };

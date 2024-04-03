@@ -12,11 +12,10 @@ export default function App() {
       <Container>
         <Row>
           <Col>
-            <ContactForm/>
+            <ContactForm />
           </Col>
           <Col>
-            <ContactList/>
-            {/* 여기서  ContactForm, ContactList는 같은 부모 아래의 자식, 공유를 위해서는 리덕스!*/}
+            <ContactList />
           </Col>
         </Row>
       </Container>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Col, Form, Row } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 
 export default function SearchBox() {
@@ -14,25 +14,22 @@ export default function SearchBox() {
   return (
     <div>
       <Form onSubmit={searchName}>
-        <Row>
-          <Col>
-            <Form.Label>Search Name</Form.Label>
-          </Col>
-        </Row>
-        <Row>
-          <Col lg={9} md={6} sm={12} xs={12}>
-            <Form.Control
-              type="text"
-              placeholder="Name"
-              onChange={(event) => setKeyword(event.target.value)}
-            />
-          </Col>
-          <Col lg={3} md={6} sm={12} xs={12}>
-            <Button type="submit" variant="warning" className="Add-Button">
-              Search
-            </Button>
-          </Col>
-        </Row>
+        <Form.Group className="mb-3" controlId="formBasicSearch">
+          <Form.Label>Search Name</Form.Label>
+          <Form.Control
+            size="lg"
+            type="text"
+            placeholder="Mark Kwon"
+            onChange={(event) => {
+              setKeyword(event.target.value);
+            }}
+          />
+        </Form.Group>
+        <Form.Group className="mb-5" controlId="formBasicSearchButton">
+          <Button variant="danger" type="submit" style={{ width: "100%" }}>
+            <strong>Search</strong>
+          </Button>
+        </Form.Group>
       </Form>
     </div>
   );

@@ -1,23 +1,29 @@
 import React from "react";
-import { Col, Row } from "react-bootstrap";
 
 export default function ContactItem({ item }) {
   return (
-    <div>
-      <Row>
-        <Col lg={2}>
+    <div className="contact-item">
+      <div className="contact-image-container">
+        {item.image ? (
           <img
-            // style={{ width: "50px" }}
-            width={80} //두가지 방법
-            src="https://img.allurekorea.com/allure/2017/04/style_58ff2afd89457-e1493117714656.jpg"
-            alt=""
+            className="contact-image"
+            src={URL.createObjectURL(item.image)}
+            alt={item.name}
           />
-        </Col>
-        <Col lg={10}>
-          <div>{item?.name}</div>
-          <div>{item?.phoneNumber}</div>
-        </Col>
-      </Row>
+        ) : (
+          <img
+            className="contact-image"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_TlXzUKhylNmPVwfITfk2l7TZDLf9BJAoyAFS7n7fEg&s"
+            alt={item.name}
+          />
+        )}
+      </div>
+
+      <div className="contact-info-container">
+        <h3 className="contact-name">{item?.name}</h3>
+        <h5 className="contact-phone">{item?.phoneNumber}</h5>
+        <p className="contact-email">{item?.email}</p>
+      </div>
     </div>
   );
 }
