@@ -38,6 +38,7 @@ export default function ContactForm() {
     } else {
       formattedInput = input;
     }
+    // formattedInput = `${input.slice(0,3)}-${input.slice(3,7)}-${input.slice(7,11)}`
 
     setPhoneNumber(formattedInput); // 변환된 값을 상태에 저장
   };
@@ -84,7 +85,7 @@ export default function ContactForm() {
           <Form.Label>Profile Image</Form.Label>
           <Form.Control
             type="file"
-            controlId="formImage"
+            controlid="formImage"
             className="mb-4"
             onChange={(event) => {
               image = event.target.files[0];
