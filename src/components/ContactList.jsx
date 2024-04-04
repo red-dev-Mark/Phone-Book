@@ -16,6 +16,9 @@ export default function ContactList() {
     }
   }, [contactList, keyword]); // 의존성 배열에 contactList와 keyword를 추가
 
+  //filterList를 상태 변수가 아닌, 일반 변수로 선언 : 컴포넌트가 재랜더링될 때마다 초기화
+  // const filterList = contactList.filter((item) => item.name.includes(keyword));
+
   return (
     <div>
       <SearchBox />
@@ -27,7 +30,7 @@ export default function ContactList() {
           </h3>
         ) : (
           <>
-          <h3 className="contact-text">
+            <h3 className="contact-text">
               <strong>{filterList.length}</strong> 개의 연락처
             </h3>
             {filterList.map((item, index) => (
