@@ -19,7 +19,7 @@ export default function reducer(state = initialStore, action) {
                 ? "No Phone Number"
                 : payload.phoneNumber,
             email: payload.email === "" ? "No Email" : payload.email,
-            image: payload.image === null ? null : payload.image,
+            image: payload.imageSrc === "" ? "" : payload.imageSrc,
           },
         ],
       };

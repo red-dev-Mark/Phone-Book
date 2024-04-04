@@ -9,18 +9,18 @@ export default function ContactForm() {
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [email, setEmail] = useState("");
-  let [image, setImage] = useState(null);
+  let [imageSrc, setImageSrc] = useState(null);
 
   const addContact = (event) => {
     event.preventDefault();
     dispatch({
       type: "ADD_CONTACT",
-      payload: { name, phoneNumber, image, email },
+      payload: { name, phoneNumber, email, imageSrc },
     });
     setName("");
     setPhoneNumber("");
     setEmail("");
-    setImage(null);
+    setImageSrc(null);
   };
 
   const handlePhoneNumberChange = (event) => {
@@ -41,6 +41,18 @@ export default function ContactForm() {
     // formattedInput = `${input.slice(0,3)}-${input.slice(3,7)}-${input.slice(7,11)}`
 
     setPhoneNumber(formattedInput); // 변환된 값을 상태에 저장
+  };
+
+  const convertURL = (event) => {
+    const imageFile = event.target.files[0];
+
+    if (imageFile && imageFile.type.startsWith("image/")) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setImageSrc(e.target.result); // 파일 내용을 읽은 결과(데이터 URL)를 상태에 저장
+      };
+      reader.readAsDataURL(imageFile); // 파일의 내용을 읽어 데이터 URL로 변환
+    }
   };
 
   return (
@@ -87,10 +99,7 @@ export default function ContactForm() {
             type="file"
             controlid="formImage"
             className="mb-4"
-            onChange={(event) => {
-              image = event.target.files[0];
-              setImage(image || null);
-            }}
+            onChange={convertURL}
           />
         </Form.Group>
 

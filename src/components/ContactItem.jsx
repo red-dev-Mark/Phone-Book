@@ -5,11 +5,7 @@ export default function ContactItem({ item }) {
     <div className="contact-item">
       <div className="contact-image-container">
         {item.image ? (
-          <img
-            className="contact-image"
-            src={URL.createObjectURL(item.image)}
-            alt={item.name}
-          />
+          <img className="contact-image" src={item.image} alt={item.name} />
         ) : (
           <img
             className="contact-image"
@@ -27,3 +23,9 @@ export default function ContactItem({ item }) {
     </div>
   );
 }
+
+/* <img
+className="contact-image"
+src={URL.createObjectURL(item.image)} //더 간단하게 파일 객체에서 데이터 URL로 변경하는 방법
+alt={item.name}
+/> */
