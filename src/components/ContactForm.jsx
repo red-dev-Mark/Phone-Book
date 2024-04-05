@@ -38,6 +38,7 @@ export default function ContactForm() {
     } else {
       formattedInput = input;
     }
+    //단순 문자열로 처리하면 더 코드가 간략해지지만, 단점도 존재
     // formattedInput = `${input.slice(0,3)}-${input.slice(3,7)}-${input.slice(7,11)}`
 
     setPhoneNumber(formattedInput); // 변환된 값을 상태에 저장
